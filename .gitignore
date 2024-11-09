@@ -1,0 +1,14 @@
+./kitsune-launcher/node_modules/
+./kitsune-launcher/package-lock.json
+./kitsune-wrapper/node_modules/
+./kitsune-wrapper/package-lock.json
+./kitsune-wrapper-extensions/node_modules/
+./kitsune-wrapper-extensions/package-lock.json
+./kitsune-application-test-dummy/node_modules/
+./kitsune-application-test-dummy/package-lock.json
+./kitsune-asset-store/node_modules/
+./kitsune-asset-store/package-lock.json
+./kitsune-ws-server/node_modules/
+./kitsune-ws-server/package-lock.json
+./kitsune-wrapper-library/node_modules/
+./kitsune-wrapper-library/package-lock.json
