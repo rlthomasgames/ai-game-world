@@ -1,0 +1,19 @@
+{
+  "version": 12,
+  "language": "en-US",
+  "gameConfig": "i win",
+  "layout": {
+    "name": "whatever"
+  },
+  "modules": [
+    { "moduleName":"KSockService", "modulePath":"./extensions/kSockService.bundle.js", "gzipped": true},
+    { "moduleName":"AssetDataVendor", "modulePath":"./extensions/assetDataVendor.bundle.js", "gzipped": true},
+    { "moduleName":"HelloWorldExtension", "modulePath":"./extensions/helloWorldExtension.bundle.js", "gzipped": true},
+    { "moduleName":"PixiFrameworkExtension", "modulePath":"./extensions/pixiFrameworkExtension.bundle.js", "gzipped":  true},
+    { "moduleName":"ThreeFrameworkExtension", "modulePath":"./extensions/threeFrameworkExtension.bundle.js", "gzipped":  true },
+    { "moduleName":"DracoParser", "modulePath":"./extensions/dracoParser.bundle.js", "gzipped":  true }
+  ],
+  "application": {"moduleName":"application", "modulePath":"./applications/test_dummy/index.js", "gzipped":  false},
+  "uniqueID": null,
+  "assetPacks":["e9b1ff09-240b-4a7d-bca7-f8776f2f498e"]
+}

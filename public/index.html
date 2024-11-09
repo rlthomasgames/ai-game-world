@@ -1,0 +1,663 @@
+<!doctype html><html><head><meta charset="utf-8"/><title>Wrapper Project</title><style>input[type="file"] {
+            display: none;
+        }
+        input[type="button"] {
+            display: none;
+        }
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        .myButton {
+            line-height: calc(2.2dvi);
+            box-shadow: inset 0px -9px 5px 3px #d6a570;
+            background: linear-gradient(to bottom, #d4a42a 5%, #d6d2ab 100%);
+            background-color: #d4a42a;
+            border-radius: 2px;
+            border: 2px solid #c79870;
+            display: block;
+            cursor: pointer;
+            color: #803e12;
+            margin: 3% 3% 3% 3% !important;
+            font-family: Courier New;
+            font-size: calc(1.5dvi*2vmax)!important;
+            padding: 3%!important;
+            text-decoration: none;
+            text-shadow: -1px -1px 1px #ffd900;
+            width: 100%;
+            z-index: 1984;
+            pointer-events: all;
+            min-width: max-content;
+        }
+        .myButton > label {
+            padding: calc(79dvi*2vmax) calc(0.5dvi*2vmax)!important;
+        }
+        .myButton:hover {
+            background:linear-gradient(to bottom, #d6d2ab 5%, #d4a42a 100%);
+            background-color:#d6d2ab;
+            pointer-events: all;
+            cursor: pointer;
+            z-index: 1984;
+        }
+        .myButton:active {
+            position:relative;
+            top:1px;
+            pointer-events: all;
+            cursor: pointer;
+            z-index: 1984;
+        }
+        #content {
+
+        }
+        .bg {
+            padding: 0px;
+            overflow: hidden;
+            background-repeat: no-repeat;
+            background-attachment: local;
+            height: 100%;
+            width: 100%;
+        }
+        .logoAlign {
+            zoom: 0.77;
+            -moz-transform: scale(0.77);
+            bottom: 3px;
+            right : 3px;
+            flex-direction: row;
+            justify-content: right;
+            display: flex;
+            width: 100%;
+            height: 145px;
+            position: absolute;
+            opacity: 0.75;
+            overflow: hidden;
+        }
+        .logoImage {
+            position: absolute;
+            bottom: -1px;
+            opacity: 0.45;
+            width: 64px;
+            height: 64px;
+            mix-blend-mode: multiply;
+            pointer-events: auto;
+            cursor: pointer;
+            #inactive {
+                mix-blend-mode: multiply;
+                pointer-events: auto;
+                cursor: none;
+            }
+            #active {
+
+            }
+        }
+        .backCli {
+            min-width: 100%;
+            align-items: flex-start;
+        }
+        div.kMenu {
+            visibility: visible;
+            display: flex;
+            right:1px;
+            width: 14%;
+            padding: 2px;
+            pointer-events: none;
+            .parent {
+                pointer-events: all;
+            }
+
+        }
+
+        div.kMenu.default {
+                visibility: hidden;
+                display: none;
+        }
+
+        div.kMenu.active {
+                visibility: visible;
+                display: flex;
+                position: relative;
+                pointer-events: auto;
+                cursor: pointer;
+                bottom: initial;
+                transform: initial;
+            }
+        div.kMenu.inactive {
+                visibility: hidden;
+                display: none;
+                position: fixed;
+                bottom: -1984px;
+                pointer-events: none;
+                cursor: default;
+                transform: translateY(-50%);
+            }
+        div.kMenu.active > * {
+            z-index: 1984;
+            display: inline-block;
+            pointer-events: all;
+        }
+        div.kMenu.inactive > * {
+            z-index: -1;
+            display: none;
+            pointer-events: none;
+        }
+        #uploadForm {
+            margin: 0;
+            position: absolute;
+            z-index:1984;
+            display: block;
+            height: calc(5.5dvi);
+            min-height: max-content;
+            min-width: 100%;
+        }
+        #fileInput {
+            div | button | fieldset{
+                box-shadow:inset 0px -9px 5px 3px #d6a570;
+                background:linear-gradient(to bottom, #d4a42a 5%, #d6d2ab 100%);
+                background-color:#d4a42a;
+                border-radius:4px;
+                border:2px solid #c79870;
+                display:inline-block;
+                cursor:pointer;
+                color:#803e12;
+                font-family:Courier New;
+                font-size:11px;
+                padding:3px 3px;
+                text-decoration:none;
+                text-shadow:-1px -1px 1px #ffd900;
+            }
+
+        }
+        #fileInput:after{
+                     content:"<br />";
+                     white-space: pre; /* or pre-wrap */
+                 }
+        #uploadButton{
+
+        }
+        div.container_square_textInput {
+            margin-top: 0;
+            margin-bottom: 0;
+            padding: 10px 15px;
+            text-align: center;
+            background-color: transparent;
+            box-shadow: rgba(0, 0, 0, 1) 6px 10px 10px -15px;
+            margin: 0;
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        .grid-col-span-2 {
+            grid-column: span 100;
+        }
+
+        @media (min-width: 50rem)
+        .grid-col-span-2 {
+            grid-column: span 2;
+        }
+
+        .card{
+            align-content: flex-start;
+            align-items: flex-start;
+            flex: max-content;
+            backdrop-filter: blur(9px) saturate(20%) !important;
+            -webkit-backdrop-filter: blur(9px) saturate(180%) !important;
+            background-color: rgba(255,255,255, 0.35) !important;
+            border-radius:  12px !important;
+            border: 3px solid rgba(209, 213, 219, 0.38) !important;
+            height: 145px;
+            flex-wrap: nowrap;
+            padding: 10px 10px 10px 10px;
+            border-radius: 12px;
+            margin: 10px 10px 10px 10px;
+            position: absolute;
+            border: 4px solid rgba(80, 80, 80, 0.65);
+            background-color: rgba(0.5, 0.5, 0.5, 0.5);
+            text-transform: uppercase;
+            backdrop-filter: blur(7px) saturate(5%);
+            z-index: 1984;
+            flex-direction: column;
+            width: 100%;
+            min-width: calc(25dvi*200vmax)!important;
+        }
+        .element {
+            border: 6px groove rgba(242, 235, 235, 0.7);
+            border-radius: 10px;
+            transform: translate(0px, -200px);
+            background-color: rgba(255, 255, 255, 0.5);
+            color: rgba(0, 0, 0, 0.88);
+            box-shadow: -3px -3px 47px 23px rgba(0, 0, 0, 0.32);
+            transition: transform 332ms ease-out 92ms;
+            animation: cssAnimation_0 1168ms infinite ease-in 69ms;
+            backdrop-filter:
+                    blur(9px)
+                    saturate(266%)
+                    grayscale(53%)
+                    sepia(60%)
+                    hue-rotate(110deg)
+                    contrast(63%);
+            -webkit-backdrop-filter:
+                    blur(9px)
+                    saturate(266%)
+                    grayscale(53%)
+                    sepia(60%)
+                    hue-rotate(110deg)
+                    contrast(63%);
+        }
+
+        .flex-container {
+            margin: 5px 5px 5px 5px !important;;
+            padding: 5px 5px 5px 5px !important;
+            display: inline-flex;
+            flex-direction: row;
+            flex-wrap: wrap-reverse;
+            justify-content: flex-start;
+            align-items: normal;
+            align-content: normal;
+            width:100%;
+            position: absolute;
+            left: 15px;
+            right: 0px;
+            top: 0px;
+            height: 100%;
+            bottom: 5px;
+        }
+
+        .flex-items {
+            margin: 5px 5px 5px 5px !important;;
+            padding: 5px 5px 5px 5px !important;
+            height: calc(3.2vw/3);
+            display: block;
+            flex-grow: .8;
+            flex-shrink: 0;
+            flex-basis: auto;
+            align-self: auto;
+            align-content: center;
+            align-items: center;
+            order: 0;
+            overflow-inline: visible !important;
+            overflow-block: visible !important;
+        }
+        @keyframes cssAnimation_0 {
+            from {
+                background-color: rgba(255, 255, 255, 0.5);
+            }
+
+            to {
+                background-color: rgba(255, 255, 255, 0.22);
+            }
+        }
+
+        .element:active {
+            transform: translate(0px, 43px);
+        }
+
+        div#backClk {
+            pointer-events: none;
+            position: absolute;
+            display: block;
+            left: 0;
+            top: 0;
+            width:100%;
+            height: 0;
+            z-index: -1;
+            background: transparent;
+            min-height: 0;
+        }
+        div#backClk.active {
+            pointer-events: visible;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            height: max-content;
+            position: absolute;
+            z-index: 1983;
+            background: rgba(0,0,0,0.01);
+            min-height: 100%;
+        }
+        .paraBlockTitle {
+            box-shadow:inset 0px 0px 15px 3px #265e16;
+            background:linear-gradient(to bottom, rgba(9, 224, 66, 0.015) 5%, rgba(78, 148, 40, 0.5) 100%);
+            background-color:rgba(9, 149, 34, 0.75);
+            border-radius:17px;
+            border:1px solid #278230;
+            color:#2f6322;
+            font-family:Arial;
+            font-size:38px;
+            padding:7px 15px;
+            text-decoration:none;
+            text-shadow:1px 1px 0px #2f6627;
+            margin: auto;
+            display: block;
+            position: relative;
+            left: -6px;
+            right: 6px;
+            top:0px;
+            bottom:0px;
+            transform: translateX(6px);
+            text-align: center;
+            padding: 3px 3px 3px 3px;
+            margin-top: 6px;
+            margin-bottom: 6px;
+            margin-left: 6px;
+            margin-right: 6px;
+        }
+
+        .paraBlockText {
+            box-shadow:inset 2px 2px 15px 3px rgba(78, 148, 40, 0.5);
+            background:linear-gradient(to bottom, rgba(9, 224, 66, 0.15) 5%, rgba(78, 148, 40, 0.5) 100%);
+            background-color:rgba(9, 149, 34, 0.75);
+            border-radius:14px;
+            border:1px solid #278230;
+            display:inline-block;
+            cursor:pointer;
+            color:#2f6322;
+            font-family:Arial;
+            font-size:18px;
+            padding:7px 15px;
+            text-decoration:none;
+            text-shadow:1px 1px 0px #2f6627;
+            margin: auto;
+            display: block;
+            position: relative;
+            margin-top: 16px;
+            left: -6px;
+            transform: translateX(6px);
+            text-align: center;
+            padding: 3px 3px 3px 3px;
+            margin-top: 6px;
+            margin-bottom: 6px;
+            margin-left: 6px;
+            margin-right: 6px;
+        }
+
+        .centerBlock {
+            display: block;
+            position: relative;
+            max-width: 55%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgb(89,162,71);
+            background: radial-gradient(circle, rgba(89,162,71,1) 26%, rgba(39,143,58,1) 72%, rgba(32,114,54,1) 87%, rgba(21,89,55,1) 96%, rgba(38,65,29,1) 100%, rgba(2,0,36,1) 100%);
+            border-radius:14px;
+            border:1px solid rgba(0,0,0,0);
+            border: 1px solid;
+            padding: 10px;
+            box-shadow: 5px 10px 18px rgba(186, 212, 85, 0.35);
+        }
+        .kitsuneBody {
+            width: 100%;
+            background: black;
+            overflow: hidden;
+        }
+
+        .greenBack {
+            position: relative;
+            width: 100%;
+            top: 28%;
+            transform: translateY(-50%);
+            overflow: hidden;
+        }
+
+        .hidden {
+            display: none;
+            visibility: hidden;
+            position: relative;
+            z-index: 0;
+        }
+
+        .visible {
+            display: initial;
+            visibility: visible;
+            position: relative;
+            z-index: 999;
+        }
+
+        .kitsune16{
+            width: 16px;
+            height: 16px;
+            position:relative;
+            display:inline-block;
+            background:url('./images/kicon16.png')
+        }
+        .kitsune32{
+            width: 32px;
+            height: 32px;
+            position:relative;
+            display:inline-block;
+            background:url('./images/kicon32.png');
+            top: 2px;
+            position: relative;
+        }
+        .kitsune57{
+            width: 57px;
+            height: 57px;
+            position:relative;
+            display:inline-block;
+            background:url('./images/kicon57.png')
+        }
+        .kitsune115{
+            width: 115px;
+            height: 115px;
+            position:relative;
+            display:inline-block;
+            background:url('./images/kicon115.png')
+        }
+        .kitsune-404{
+            width: 115px;
+            height: 115px;
+            position:relative;
+            display:inline-block;
+            background:url('./images/sad-kitsune.png');
+            margin-bottom: 10px;
+        }
+        .kitsune-inset{
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(2px);
+            border: 0.35vw inset rgba(0, 159, 0, 0.15);
+            border-radius:14px;
+
+            background: rgba(17, 102, 17, 0.34);
+            margin-top: 0px;
+            padding-top: 0px;
+            top:0px;
+        }
+
+        .gemini-row{
+            display: table;
+            width: 100%; /*Optional*/
+            table-layout: fixed; /*Optional*/
+            border-spacing: 10px; /*Optional*/
+        }
+
+        .gemini-image {
+            width: 22.7vh !important;
+            height: 22.7vh !important;
+            background-size: contain;
+            background-repeat: no-repeat;
+            display: inline-block;
+            margin: 10px 10px 10px 10px;
+        }
+
+
+        @keyframes spinner {
+            to {
+                transform: rotate(360deg);}
+        }
+
+        @keyframes absolute-spinner {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes cell-spinner {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .spinner:before {
+            content: '';
+            box-sizing: border-box;
+            position: relative;
+            display: block;
+            top: -16px;
+            left: 50%;
+            width: 32px !important;
+            height: 32px;
+            margin-top: -16px;
+            margin-left: -16px;
+            margin-bottom: 16px;
+            border-radius: 50%;
+            border: 4px solid #efa721;
+            border-top-color: #ff8000;
+            border-bottom-color: #efa721;
+            animation: spinner .8s ease infinite;
+        }
+
+        absolute-spinner:before {
+            content: '';
+            box-sizing: border-box;
+            position: absolute;
+            display: block;
+            top: -8px;
+            left: 50%;
+            width: 16px !important;
+            height: 16px;
+            margin-top: -8px;
+            margin-left: -8px;
+            margin-bottom: 8px;
+            border-radius: 50%;
+            border: 4px solid #efa721;
+            border-top-color: #ff8000;
+            border-bottom-color: #efa721;
+            animation: spinner .8s ease infinite;
+        }
+
+        .cell-spinner {
+            width: 24vh !important;
+            height: 24vh !important;
+        }
+
+        .cell-spinner:after {
+            content: '';
+            box-sizing: border-box;
+            position: relative;
+            display: block;
+            top: 50%;
+            left: 50%;
+            width: 32px !important;
+            height: 32px !important;
+            margin-top: -16px;
+            margin-left: -16px;
+            margin-bottom: 16px;
+            border-radius: 50%;
+            border: 4px solid #efa721;
+            border-top-color: #ff8000;
+            border-bottom-color: #efa721;
+            animation: spinner .8s ease infinite;
+        }
+
+        .kFooter {
+            background: black !important;
+            color: green !important;
+            font-size: 8px !important;
+        }
+
+        .prompt {
+            border-radius:14px;
+            background: rgba(66, 234, 85, 0.35);
+            width: 85%;
+            padding: 10px 10px 10px 10px;
+            margin: 10px 10px 10px 10px;
+            max-width: 85%;
+            min-width: 12.5%;
+        }
+
+        .k-ui-Button {
+            box-shadow:inset 0px 1px 0px 0px #f9eca0;
+            background:linear-gradient(to bottom, rgba(250, 173, 2, 0.93) 5%, #ff4d16 100%);
+            background-color:#f0c911;
+            border-radius:6px;
+            border:1px solid #e65f44;
+            display:inline-block;
+            cursor:pointer;
+            color:#c92200;
+            font-family:Arial;
+            font-size:15px;
+            font-weight:bold;
+            padding:6px 24px;
+            text-decoration:none;
+            text-shadow:0px 1px 0px #ded17c;
+        }
+        .k-ui-Button:hover {
+            background:linear-gradient(to bottom, #f2ab1e 5%, #f0c911 100%);
+            background-color:#f2ab1e;
+        }
+        .k-ui-Button:active {
+            position:relative;
+            top:1px;
+        }
+        .game {
+            background: transparent;
+            display: block;
+            position: absolute;
+            top: 0px;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            z-index: 2;
+            margin: auto;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }</style></head><body class="bg kitsuneBody">
+<div id="contentContainer">
+    <div id="content"></div>
+    <!--canvas id="kCanvas" width="320" height="240"></canvas-->
+</div>
+<div class="logoAlign">
+    <img src="../assets/logo.png" class="logoImage" id="logo" style="cursor: pointer;">
+    <div id="backCli" class="backCli">
+        <div id="kitsuneMenuContainer" class="kMenu default card grid-col-span-2">
+            <form ref="uploadForm" id="uploadForm" action="http://localhost:8000/upload" method="post" enctype="multipart/form-data">
+                <div class="flex-container">
+                    <label for="fileInput" class="myButton flex-items">SELECT FILES</label>
+                    <input type="file" id="fileInput" name="files[]" multiple="multiple" accept="*/*"/>
+                    <label for="uploadButton" class="myButton flex-items">UPLOAD</label>
+                    <input type="button" id="uploadButton" value="UPLOAD"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="greenBack ai-prompt visible">
+    <div class="centerBlock">
+        <div class="paraBlockTitle">
+            <div class="kitsune32" style="left:0px;"></div>
+            AI Generate
+        </div>
+        <div class="paraBlockText"><br><br><br>
+            <div class="spinner hidden"></div>
+            <form class="form visible">
+                <textarea cols="30" rows="8" class="prompt kitsune-inset visible">Enter prompt here...</textarea>
+                <br/>
+                <button class="k-ui-Button" type="submit" value="Submit">
+                    Generate
+                </button>
+            </form>
+            <br><br>
+            <div class="kFooter"></div>
+        </div>
+    </div>
+</div>
+<div class="greenBack images visible">
+    <div class="centerBlock">
+        <div class="paraBlockTitle">
+            <div class="kitsune32" style="left:0px;"></div>
+            Select an Image</div><div class="paraBlockText"><br><br><br><div class="spinner, hidden"></div><div class="gemini-row"><div class="gemini-image cell-spinner" style="background-image:url('./images/gemini0.png')"></div><div class="gemini-image cell-spinner" style="background-image:url('./images/gemini1.png')"></div><div class="gemini-image cell-spinner" style="background-image:url('./images/gemini2.png')"></div></div><br><br><div class="kFooter"></div></div></div></div></body><script>(() => {
+        // Feature detect.
+        document.getElementById('content').classList.toggle(
+            'supported', ('OffscreenCanvas' in window));
+    })();</script></html>

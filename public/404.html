@@ -1,0 +1,175 @@
+<html>
+<head>
+<title>Kitsune 404</title>
+<style>
+.paraBlockTitle {
+	box-shadow:inset 0px 0px 15px 3px #265e16;
+	background:linear-gradient(to bottom, rgba(9, 224, 66, 0.015) 5%, rgba(78, 148, 40, 0.5) 100%);
+	background-color:rgba(9, 149, 34, 0.75);
+	border-radius:17px;
+	border:1px solid #278230;
+	color:#2f6322;
+	font-family:Arial;
+	font-size:38px;
+	padding:7px 15px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #2f6627;
+	margin: auto;
+	display: block;
+	position: relative;
+	left: -6px;
+	right: 6px;
+	top:0px;
+	bottom:0px;
+	transform: translateX(6px);
+	text-align: center;
+	padding: 3px 3px 3px 3px;
+	margin-top: 6px;
+	margin-bottom: 6px;
+	margin-left: 6px;
+	margin-right: 6px;
+}
+
+.paraBlockText {
+	box-shadow:inset 2px 2px 15px 3px rgba(78, 148, 40, 0.5);
+	background:linear-gradient(to bottom, rgba(9, 224, 66, 0.15) 5%, rgba(78, 148, 40, 0.5) 100%);
+	background-color:rgba(9, 149, 34, 0.75);
+	border-radius:14px;
+	border:1px solid #278230;
+	display:inline-block;
+	cursor:pointer;
+	color:#2f6322;
+	font-family:Arial;
+	font-size:18px;
+	padding:7px 15px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #2f6627;
+	margin: auto;
+	display: block;
+	position: relative;
+	margin-top: 16px;
+	left: -6px;
+	transform: translateX(6px);
+	text-align: center;
+	padding: 3px 3px 3px 3px;
+	margin-top: 6px;
+	margin-bottom: 6px;
+	margin-left: 6px;
+	margin-right: 6px;
+}
+
+.centerBlock {
+	display: block;
+	position: relative;
+	width: 27%;
+	left: 50%;
+	transform: translateX(-50%);
+	background: rgb(89,162,71);
+	background: radial-gradient(circle, rgba(89,162,71,1) 26%, rgba(39,143,58,1) 72%, rgba(32,114,54,1) 87%, rgba(21,89,55,1) 96%, rgba(38,65,29,1) 100%, rgba(2,0,36,1) 100%);
+	border-radius:14px;
+	border:1px solid rgba(0,0,0,0);
+	border: 1px solid;
+  	padding: 10px;
+  	box-shadow: 5px 10px 18px rgba(186, 212, 85, 0.35);
+}
+.kitsuneBody {
+	width: 100%;
+	background: black;
+}
+
+.greenBack {
+	position: relative;
+	width: 100%;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.kitsune16{
+	width: 16px;
+	height: 16px;
+	position:relative;
+	display:inline-block;
+	background:url('./images/kicon16.png')
+}
+.kitsune32{
+	width: 32px;
+	height: 32px;
+	position:relative;
+	display:inline-block;
+	background:url('./images/kicon32.png');
+	top: 2px;
+	position: relative;
+}
+.kitsune57{
+	width: 57px;
+	height: 57px;
+	position:relative;
+	display:inline-block;
+	background:url('./images/kicon57.png')
+}
+.kitsune115{
+	width: 115px;
+	height: 115px;
+	position:relative;
+	display:inline-block;
+	background:url('./images/kicon115.png')
+}
+.kitsune-404{
+	width: 115px;
+	height: 115px;
+	position:relative;
+	display:inline-block;
+	background:url('./images/sad-kitsune.png');
+	margin-bottom: 10px;
+}
+.kitsune-inset{
+	-webkit-backdrop-filter: blur(5px);
+	backdrop-filter: blur(2px);
+  	border: 0.35vw inset rgba(0, 159, 0, 0.15);
+  	border-radius:14px;
+  	
+  	background: rgba(17, 102, 17, 0.34);
+  	margin-top: 0px;
+  	padding-top: 0px;
+  	top:0px;
+}
+.kFooter {
+ background: black !important;
+ color: green !important;
+ font-size: 8px !important;
+}
+</style>
+<script>
+
+document.onLoad = function() {
+	loadT = new Date().toISOString();
+	elements = document.body.getElementsByClass('kFooter');
+	for(let e in elements) {
+		e.innerText = `loaded : ${loadT}`
+	}
+}
+
+</script>
+</head>
+<body class="kitsuneBody">
+<div class="greenBack">
+<div class="centerBlock">
+<div class="paraBlockTitle">
+<div class="kitsune32" style="left:0px;"></div>
+kitsune-wrapper 404 ER-ROAR
+</div>
+<div class="paraBlockText">
+<p>404 Error from cloud</br></p>
+<div class="kitsune-404">
+</div>
+</br>
+<p class="kitsune-inset">
+</br>Sorry, please understand we are still developing kitsune, some parts may not always work or you may experience intermittent breaks in services.</br></br><div class="kitsune16" style="left:0px;"></div> Kitsune is in early development stages, we are sorry for any inconvience or lacking experiences. </br>
+</p>
+<div class="kFooter"></div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

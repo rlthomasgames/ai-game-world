@@ -1,0 +1,45 @@
+{
+  "name": "kitsune-wrapper-library",
+  "version": "0.0.56",
+  "description": "Initial setup for a shared library",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node_modules/.bin/tsc",
+    "publish-lib": "npm run build && npm publish",
+    "publish-beta": "npm run build && npm publish --tag beta",
+    "publish-dryrun": "npm run build && npm publish --dry-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rlthomasgames/kitsune.git"
+  },
+  "keywords": [
+    "wrapper",
+    "typescript",
+    "modular",
+    "library",
+    "injection",
+    "inversify",
+    "games"
+  ],
+  "author": "Rhys Thomas",
+  "license": "MIT",
+  "bugs": {
+    "url": "..."
+  },
+  "homepage": "https://polygonprophecy.com",
+  "devDependencies": {
+    "@types/inversify": "^2.0.33",
+    "inversify": "^6.0.2",
+    "socket.io-client": "^4.7.4"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "typescript": "^4.2.3"
+  }
+}

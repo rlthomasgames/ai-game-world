@@ -1,0 +1,195 @@
+/* Styles go here. */
+
+.yingnyang {
+    font-size: larger;
+    border: 0px none transparent;
+}
+.inline-text {
+    display: inline-block !important;
+}
+/*
+@keyframes rotateSpinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+*/
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Bungee Inline';
+    font-size: calc( calc(0.002vh * 0.25em)+ 6px) !important;
+    scrollbar-width: none;
+    overflow-block: hidden;
+    overflow-clip: hidden;
+    overflow: hidden !important;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+}
+
+canvas {
+    overflow: hidden !important;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+}
+
+#menu {
+    color: #ffffff;
+    z-index: 2;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+    justify-content: center;
+}
+
+#outer-style {
+    justify-content: center;
+    position: absolute;
+    display: inline-block;
+    height: 100%;
+    right: 0px;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    horiz-align: center;
+}
+
+.container {
+    color: #ffffff;
+    background: rgba(0,0,0,0);
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    display: block;
+    z-index: 9999999;
+}
+.menuTitle {
+    position: relative;
+    top: 1vmax;
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    color: #ffffff;
+    vertical-align: bottom;
+    text-align: justify;
+    align-items: end;
+    font-size: 5vmin;
+}
+
+.instructionText{
+    color: #ffffff;
+}
+
+
+.myButton {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    box-shadow: inset 0px 1px 0px 0px #fff6af;
+    background: #ffec64 linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+    border-radius: 6px;
+    border: 1px solid #ffaa22;
+    display: inline-block;
+    cursor: pointer;
+    color: #333333;
+    font-family: 'Bungee Inline';
+    font-size: 24px;
+    font-weight: bold;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #ffee66;
+    margin: 4px;
+    text-align: center;
+    width: 120px;
+    vertical-align: top;
+    horiz-align:center;
+}
+
+.myButton:hover {
+    box-shadow: inset 0px 1px 0px 0px #e50b0b;
+    border: 1px solid #e50b0b;
+    text-shadow: 0px 1px 0px #e50b0b;
+    background: linear-gradient(to bottom, #f93434 0%,#f16f5c 50%,#e50b0b 51%,#e73827 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+#title {
+    background: url('./title.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top center;
+}
+
+.title-spacer {
+    height: calc( 12px + 30vmax );
+    margin: auto;
+    position: relative;
+    width: auto;
+    top: 1vmax;
+    left: 0px;
+    right: 0px;
+}
+
+.menuButton{
+    position: relative;
+    box-shadow:inset 0px 1px 0px 0px #f29c93;
+    background:linear-gradient(to bottom, #f04800 5%, #ce0100 100%);
+    background-color:RGBA(200,20,20);
+    border-radius: .75vmin;
+    border: transparent 0.10vmin outset;
+    display:inline-block;
+    cursor:grab;
+    color: rgba(67, 0, 0, 0.65);
+    opacity: 80%;
+    font-family: 'Bungee Inline';
+    font-size:1.8vmax !important;
+    font-weight: bolder;
+    padding: 0.75vmin 0.75vmin 0.75vmin 0.75vmin;
+    text-decoration: #e86c36 overline 8.7vmin;
+    text-decoration-thickness: 5.725vmin;
+    overflow: hidden;
+    text-shadow: 0.13vmax 0.242vmax 0.38vmax #b23e35;
+    text-align: center;
+    text-justify: kashida;
+    margin: auto;
+    border: #000000 0.20vmin outset;
+    padding: 4px;
+    margin-outside: 9vmin 9vmin 9vmin 9vmin;
+    margin-inside: 0vmin 0vmin 0vmin 0vmin;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.menuButton:hover {
+    background:linear-gradient(to bottom, #ce0100 5%, #f04800 100%);
+    background-color:#ce0100;
+    border: #ffffff 0.20vmin outset;
+}
+
+.btn-group button {
+    border-bottom: none; /* Prevent double borders */
+    background-color: #c50404; /* Green background */
+    //border: 1px solid rgba(87, 0, 0, 0.65); /* Green border */
+    color: #280505; /* White text */
+    padding: 10px 24px; /* Some padding */
+    cursor: pointer; /* Pointer/hand icon */
+    width: 50%; /* Set a width if needed */
+    display: block; /* Make the buttons appear below each other */
+}
+
+.btn-group button:not(:last-child) {
+    border-bottom: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+    //background-color: #bd0000;
+}

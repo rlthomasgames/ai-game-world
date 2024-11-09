@@ -1,0 +1,36 @@
+{
+  "name": "kitsune-asset-store",
+  "version": "0.0.1",
+  "description": "store and serve asset packs utilizing either rest api or socket based i/o comms",
+  "main": "dist/AssetVendorService.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "./dist"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "linklib": "npm run --prefix ../kitsune-wrapper-library build && npm link ../kitsune-wrapper-library",
+    "build": "tsc",
+    "start": "tsc; cd ./dist/ && node AssetVendorService.js"
+  },
+  "author": "Rhys Thomas",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "formidable": "^3.5.1",
+    "multer": "^1.4.5-lts.1",
+    "watch": "^1.0.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/express-fileupload": "^1.4.4",
+    "@types/formidable": "^3.4.5",
+    "@types/node": "^20.11.17",
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "express-fileupload": "^1.5.1",
+    "fflate": "^0.8.2",
+    "kitsune-wrapper-library": "^0.0.56"
+  }
+}

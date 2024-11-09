@@ -1,0 +1,50 @@
+{
+  "name": "kitsune-wrapper-extensions",
+  "version": "0.0.1",
+  "description": "seperated extensions project for clean, light weight optional extensions for wrapper",
+  "main": "index.ts",
+  "scripts": {
+    "linklib": "npm run --prefix ../kitsune-wrapper-library build && npm link ../kitsune-wrapper-library",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode=production --stats-error-details"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rlthomasgames/kitsune.git"
+  },
+  "keywords": [
+    "kitsune",
+    "wrapper",
+    "modular",
+    "dependency",
+    "injection",
+    "inversify",
+    "games"
+  ],
+  "author": "Rhys Thomas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rlthomasgames/kitsune/issues"
+  },
+  "homepage": "https://github.com/rlthomasgames/kitsune#readme",
+  "dependencies": {
+    "hwrld": "^2.1.1",
+    "pixi.js": "^6.3.2",
+    "three": "^0.155.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.154.0",
+    "compression-webpack-plugin": "^10.0.0",
+    "inversify": "^6.0.1",
+    "kitsune-wrapper-library": "^0.0.56",
+    "lodash": "^4.17.21",
+    "reflect-metadata": "^0.1.13",
+    "socket.io-client": "^4.7.4",
+    "terser-webpack-plugin": "^5.3.1",
+    "ts-loader": "^9.2.8",
+    "typescript": "^4.2.3",
+    "webpack": "^5.72.0",
+    "webpack-bundle-analyzer": "^4.10.1",
+    "webpack-cli": "^4.9.2"
+  }
+}
