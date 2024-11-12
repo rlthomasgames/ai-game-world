@@ -22,6 +22,11 @@ export class Wrapper {
         const kMenu = document.getElementById('kitsuneMenuContainer');
         const logo = document.getElementById('logo');
         const uploadButton = document.getElementById('uploadButton');
+        const filesCont = document.getElementById('sel_files');
+        const uploadCont = document.getElementById('up_files');
+        const generateCont = document.getElementById('gen_menu');
+        const editCont = document.getElementById('edit_wrld');
+        const runCont = document.getElementById('run_wrld');
 
         const  backClickDiv = document.getElementById('backCli')
         const aiGen = document.getElementsByClassName('ai-prompt')[0] as HTMLDivElement;
@@ -33,6 +38,52 @@ export class Wrapper {
         const generateOpt = document.getElementById('generateOpt');
 
         const buttonActions = {
+            showFileInput: () => {
+                filesCont!.classList.add('visible')
+                filesCont!.classList.remove('hidden')
+            },
+            hideFileInput: () => {
+                filesCont!.classList.add('hidden')
+                filesCont!.classList.remove('visible')
+            },
+            showUpload: () => {
+                uploadCont!.classList.add('visible');
+                uploadCont!.classList.remove('hidden');
+            },
+            hideUpload: () => {
+                uploadCont!.classList.add('hidden');
+                uploadCont!.classList.remove('visible');
+            },
+            showEdit: () => {
+                editCont!.classList.add('visible')
+                editCont!.classList.remove('hidden')
+            },
+            hideEdit: () => {
+                editCont!.classList.add('hidden')
+                editCont!.classList.remove('visible')
+            },
+            showRun: () => {
+                runCont!.classList.add('visible')
+                runCont!.classList.remove('hidden')
+            },
+            hideRun: () => {
+                runCont!.classList.add('hidden')
+                runCont!.classList.remove('visible')
+            },
+            fileInputTrig: () => {
+                buttonActions.showFileInput();
+                buttonActions.hideUpload();
+                buttonActions.showRun();
+                buttonActions.hideEdit();
+
+                generateCont!.classList.add('show');
+
+                fileInput.addEventListener('click', (event) => {
+                    buttonActions.hideFileInput();
+                    buttonActions.showUpload();
+
+                })
+            },
             closemenu: () => {
                 logo!.removeEventListener('click', buttonActions.closemenu);
                 logo!.addEventListener('click', buttonActions.openMenu);
@@ -43,8 +94,10 @@ export class Wrapper {
                 uploadButton!.removeEventListener('click', buttonActions.submitAssets);
             },
             openMenu: () => {
+                buttonActions.fileInputTrig()
                 logo!.removeEventListener('click', buttonActions.openMenu);
                 logo!.addEventListener('click', buttonActions.closemenu);
+
                 kMenu!.classList.remove('default');
                 kMenu!.classList.remove('inactive');
                 kMenu!.classList.add('active');
@@ -58,6 +111,9 @@ export class Wrapper {
                 console.log('submitting')
                 this.storedFileInput = fileInput;
                 this.storedFileInput.files ? this.uploadAllFiles(this.storedFileInput.files) : console.log('no files selected');
+                buttonActions.hideUpload();
+                buttonActions.showFileInput();
+                buttonActions.closemenu();
             },
             closeGenerate: () => {
                 buttonActions.closemenu();

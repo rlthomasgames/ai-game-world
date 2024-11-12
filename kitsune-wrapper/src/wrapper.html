@@ -109,7 +109,7 @@
             visibility: visible;
             display: flex;
             right:1px;
-            width: 7.7%;
+            width: 42%;
             z-index: -1;
             padding: 2px;
             pointer-events: none;
@@ -333,7 +333,7 @@
         }
         .paraBlockTitle {
             box-shadow:inset 0px 0px 15px 3px #265e16;
-            background:linear-gradient(to bottom, rgba(9, 224, 66, 0.015) 5%, rgba(78, 148, 40, 0.5) 100%);
+            background:linear-gradient(to bottom, rgba(9, 224, 96, 0.65) 5%, rgba(78, 148, 40, 0.5) 100%);
             background-color:rgba(9, 149, 34, 0.75);
             border-radius:17px;
             border:1px solid #278230;
@@ -361,7 +361,7 @@
 
         .paraBlockText {
             box-shadow:inset 2px 2px 15px 3px rgba(78, 148, 40, 0.5);
-            background:linear-gradient(to bottom, rgba(9, 224, 66, 0.15) 5%, rgba(78, 148, 40, 0.5) 100%);
+            background:linear-gradient(to bottom, rgba(9, 224, 96, 0.35) 7%, rgba(78, 148, 40, 0.5) 77%);
             background-color:rgba(9, 149, 34, 0.75);
             border-radius:14px;
             border:1px solid #278230;
@@ -394,7 +394,7 @@
             left: 50%;
             transform: translateX(-50%);
             background: rgb(89,162,71);
-            background: radial-gradient(circle, rgba(89,162,71,1) 26%, rgba(39,143,58,1) 72%, rgba(32,114,54,1) 87%, rgba(21,89,55,1) 96%, rgba(38,65,29,1) 100%, rgba(2,0,36,1) 100%);
+            background: radial-gradient(circle, rgba(89,162,71,0.8) 26%, rgba(39,143,58,0.8) 72%, rgba(32,114,54,0.8) 87%, rgba(21,89,55,0.77) 96%, rgba(38,85,29,1) 98%, rgba(2,80,36,1) 100%);
             border-radius:14px;
             border:1px solid rgba(0,0,0,0);
             border: 1px solid;
@@ -416,7 +416,9 @@
         }
 
         .hidden {
-            display: none;
+            display: none !important;
+            width: 0px;
+            height: 0px;
             visibility: hidden;
             position: relative;
             z-index: 0;
@@ -618,6 +620,11 @@
             position:relative;
             top:1px;
         }
+        .minCon{
+            display: table-row;
+            position: relative;
+            width: 100% !important;
+        }
         .game {
             background: transparent;
             display: block;
@@ -640,28 +647,50 @@
 </div>
 <div class="logoAlign">
     <div class="kitsune115" id="logo"; style="cursor: pointer; position: absolute !important; transform: scale(75%)"></div>
-    <div id="backCli", class="backCli">
+    <div id="backCli" class="backCli">
         <div id="kitsuneMenuContainer" class="kMenu default card grid-col-span-2" style="flex-direction: column; column-count: 1; >
             <form ref='uploadForm'
                   id='uploadForm'
                   action='http://localhost:8000/upload'
                   method='post'
                   encType="multipart/form-data">
-                <div class="flex-container" style="flex-direction: column">
-                    <label for="fileInput" class="k-ui-Button flex-items" style="text-align: center">
-                        FILES
-                    </label>
-                    <input type="file" id="fileInput" name="files[]" multiple accept="*/*" />
-                    </br>
-                    <label for="uploadButton" class="k-ui-Button flex-items" style="text-align: center">
-                        UPLOAD
-                    </label>
-                    <input type="button" id="uploadButton" value="UPLOAD" />
-                    </br>
-                    <label for="generateOpt" class="k-ui-Button flex-items" style="text-align: center">
-                        GENERATE
-                    </label>
-                    <input type="button" id="generateOpt" value="GENERATE" />
+                <div class="flex-container" style="flex-direction: column; width: 34%;">
+                    <div id="sel_files" class="minCon">
+                        <label for="fileInput" class="k-ui-Button flex-items" style="text-align: center">
+                            FILES
+                        </label>
+                        <input type="file" id="fileInput" name="files[]" multiple accept="*/*" />
+                    </div>
+                    <div id="up_files" class="minCon">
+                        <label for="uploadButton" class="k-ui-Button flex-items" style="text-align: center">
+                            UPLOAD
+                        </label>
+                        <input type="button" id="uploadButton" value="UPLOAD" />
+                    </div>
+                    <div id="gen_menu" class="minCon">
+                        <label for="generateOpt" class="k-ui-Button flex-items" style="text-align: center">
+                            GENERATE
+                        </label>
+                        <input type="button" id="generateOpt" value="GENERATE" />
+                        </div>
+                    <div id="edit_wrld" class="minCon">
+                        <label for="editWorld" class="k-ui-Button flex-items" style="text-align: center">
+                            EDIT
+                        </label>
+                        <input type="button" id="editWorld" value="GENERATE" />
+                    </div>
+                    <div id="run_wrld" class="minCon">
+                        <label for="runWorld" class="k-ui-Button flex-items" style="text-align: center">
+                            RUN
+                        </label>
+                        <input type="button" id="runWorld" value="GENERATE" />
+                    </div>
+                </div>
+                <div style="width: 33%; height: 100%; left: 33%; position: absolute;">
+                    <div style="width: 100%; height: 100%; position: relative;"><p>some sample text : selected tile properties eg.</p></div>
+                </div>
+                <div style="width: 33%; height: 100%; left: 66%; position: absolute;">
+                    <div style="width: 100%; height: 100%; position: relative;"></div>
                 </div>
             </form>
         </div>

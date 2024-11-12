@@ -6,13 +6,13 @@ import {Tween} from "@tweenjs/tween.js";
 
 // @ts-ignore
 import {btVector3, btQuaternion} from "../../../node_modules/ammonext";
-import {Euler, Quaternion} from "three";
+import {Euler, Quaternion, Vector2} from "three";
 import {MadMath} from "../Utils/MadMath";
 
 export class CharacterController implements IObjectController {
 	private _physicsWorld:PhysicsController;
 
-	//TODO: move all thes into the game object!
+	//TODO: move all these into the game object!
 	private _forward:boolean = false;
 	private _backward:boolean = false;
 	private _left:boolean = false;
@@ -175,9 +175,9 @@ export class CharacterController implements IObjectController {
 	public update(gameObject:IGameObject, delta:number):void {
 		const player:IPlayerGameObject = gameObject as IPlayerGameObject;
 		console.log(`character controller is updating character ${gameObject}${player}`);
-		//const velocityRadVector:Vector2 = MadMath.radialPosition(new Vector2(), (this._velocityZ*player.speed)*player.pointerRadius, player.angle);
-		//const xFactor = Math.round(velocityRadVector.x);
-		//const zFactor = Math.round(velocityRadVector.y);
+		const velocityRadVector:Vector2 = MadMath.radialPosition(new Vector2(), (this._velocityZ*player.speed)*player.pointerRadius, player.angle);
+		const xFactor = Math.round(velocityRadVector.x);
+		const zFactor = Math.round(velocityRadVector.y);
 		const cOM = player.physicsBody.getCenterOfMassTransform().getOrigin();
 		this.physicsInfo.COF_X = cOM.x();
 		this.physicsInfo.COF_Y = cOM.y();
@@ -193,25 +193,37 @@ export class CharacterController implements IObjectController {
 
 		const moveSpeed = 18;
 		const turnSpeed = 4;
+		const fallSpeed = 20;
 		this._forward = player.inputController.up;
 		this._backward = player.inputController.down;
 		this._left = player.inputController.left;
 		this._right = player.inputController.right;
+		if(!player.collision){
+			player.physicsBody.setLinearVelocity(new btVector3(xFactor, -fallSpeed, zFactor));
+		}
 		if(player.collision && !firstImpact) {
 			// Reset velocities
-			player.physicsBody.setLinearVelocity(new btVector3(0, player.physicsBody.getLinearVelocity().y(), 0)); // Maintain Y velocity
-			player.physicsBody.setAngularVelocity(new btVector3(0, 0, 0));
+			//player.physicsBody.setLinearVelocity(new btVector3(0, player.physicsBody.getLinearVelocity().y(), 0)); // Maintain Y velocity
+			player.physicsBody.setAngularVelocity(new btVector3(xFactor, 0, zFactor));
 
 			// Forward Movement
 			if (this._forward) {
-				let forwardVelocity = new btVector3(0, 0, -moveSpeed); // Adjust Z-axis for forward/backward
-				player.physicsBody.setLinearVelocity(forwardVelocity);
+				player.speed+=0.5;
+				if (player.speed > moveSpeed) {
+					player.speed = moveSpeed;
+				}
+				let forwardVelocity = new btVector3((xFactor*moveSpeed)*turnSpeed, 0, (zFactor*moveSpeed)*turnSpeed); // Adjust Z-axis for forward/backward
+				player.physicsBody.setLinearVelocity(forwardVelocity*player.speed);
 			}
 
 			// Backward Movement
 			if (this._backward) {
-				let backwardVelocity = new btVector3(0, 0, moveSpeed); // Adjust Z-axis for backward
-				player.physicsBody.setLinearVelocity(backwardVelocity);
+				player.speed+=0.5;
+				if (player.speed > moveSpeed) {
+					player.speed = moveSpeed;
+				}
+				let backwardVelocity = new btVector3(-((xFactor*moveSpeed)*turnSpeed), 0, -((zFactor*moveSpeed)*turnSpeed)); // Adjust Z-axis for forward/backward
+				player.physicsBody.setLinearVelocity(backwardVelocity*player.speed);
 			}
 
 			// Turn Left

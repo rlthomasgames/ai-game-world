@@ -116,7 +116,7 @@ export class TileMeshFactory {
                     let rbInfo = new btRigidBodyConstructionInfo(0, motionState, shape, localInertia);
                     let newBody = new btRigidBody(rbInfo);
                     newBody.setFriction(0.05);
-                    newBody.setRestitution(0.85);
+                    newBody.setRestitution(0.5);
                     return newBody;
                 }
             );
